@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8"><title>অ্যাডমিন – বিসমিল্লাহ কম্পিউটার</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="robots" content="noindex"><meta name="theme-color" content="#0b5a31">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f1f5f3;--card:#fff;--tx:#14231b;--mu:#64756b;--pr:#0f7a43;--pr2:#e5f4ec;--bd:#dbe6df;--rd:#d63b2b;--am:#f59e0b;--sh:0 6px 20px #0f2a1a14;--sb:linear-gradient(180deg,#0b5a31,#063d22)}
+:root[data-theme=dark]{--bg:#0b130f;--card:#131f18;--tx:#e8f2ec;--mu:#94a99c;--pr:#34c47c;--pr2:#17301f;--bd:#233829;--sh:0 6px 20px #0006;--sb:linear-gradient(180deg,#0c1d14,#08130d)}
+*{box-sizing:border-box}html{height:100%}
+body{margin:0;font-family:'Hind Siliguri',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.55;padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}.hide{display:none!important}
+.btn{border:0;border-radius:11px;padding:10px 18px;font:600 14px inherit;font-family:inherit;cursor:pointer;background:var(--pr);color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:.15s}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}.btn.o{background:transparent;color:var(--pr);border:1px solid var(--pr)}.btn.d{background:var(--rd)}.btn.g{background:var(--pr2);color:var(--pr)}.btn.sm{padding:6px 12px;font-size:13px}
+input,textarea,select{width:100%;padding:11px 13px;border:1px solid var(--bd);border-radius:11px;background:var(--card);color:var(--tx);font:inherit;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--pr);box-shadow:0 0 0 3px var(--pr2)}
+label{display:block;font-size:13px;margin:12px 0 4px;color:var(--mu);font-weight:500}textarea{min-height:100px;resize:vertical}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;box-shadow:var(--sh)}
+h2{margin:0 0 4px;font-size:22px}h3{margin:0 0 10px;font-size:17px}.sub{color:var(--mu);font-size:14px;margin:0 0 16px}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px;background:var(--sb)}
+#login .box{width:100%;max-width:380px;background:var(--card);border-radius:22px;padding:28px;box-shadow:0 20px 50px #0007}
+.lg{width:70px;height:70px;margin:0 auto 10px;display:block}
+/* app */
+.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+aside{background:var(--sb);color:#fff;padding:calc(18px + env(safe-area-inset-top,0px)) 12px 18px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;z-index:30}
+aside .br{display:flex;align-items:center;gap:10px;padding:4px 8px 18px;font-weight:700}aside .br svg{width:42px;height:42px}aside small{display:block;opacity:.7;font-weight:400;font-size:12px}
+aside nav{flex:1}aside nav button{width:100%;display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:4px;border:0;border-radius:12px;background:none;color:#ffffffcc;font:500 15px inherit;font-family:inherit;cursor:pointer;text-align:left}
+aside nav button.on{background:#ffffff1f;color:#fff;box-shadow:inset 3px 0 0 #ffd54a}aside nav button:hover{background:#ffffff14}
+.bdg{background:var(--rd);color:#fff;border-radius:99px;padding:0 8px;font-size:12px;margin-left:auto}
+main{padding:calc(16px + env(safe-area-inset-top,0px)) 22px 60px;min-width:0}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:18px}.top .sp{flex:1}
+.ib{width:42px;height:42px;border-radius:12px;border:1px solid var(--bd);background:var(--card);cursor:pointer;font-size:18px;position:relative;color:var(--tx)}
+.ib .bdg{position:absolute;top:-6px;right:-6px}#bur{display:none}
+.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.stat{position:relative;overflow:hidden}.stat .n{font-size:30px;font-weight:700;color:var(--pr);line-height:1.1}.stat span{color:var(--mu);font-size:13px}.stat .ic{position:absolute;right:12px;top:10px;font-size:30px;opacity:.18}
+.chart{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:10px}.chart div{flex:1;text-align:center;font-size:12px;color:var(--mu);display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.chart i{display:block;background:linear-gradient(180deg,var(--pr),#7be0a8);border-radius:8px 8px 3px 3px;min-height:4px;margin-bottom:5px;transition:.4s}.chart b{color:var(--tx);font-size:13px}
+.msg{display:flex;gap:12px;padding:14px;border:1px solid var(--bd);border-radius:14px;background:var(--card);margin-bottom:10px}.msg.new{border-left:5px solid var(--rd);background:linear-gradient(90deg,var(--pr2),var(--card) 40%)}
+.av{width:42px;height:42px;border-radius:50%;background:var(--pr);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}.msg .bd{flex:1;min-width:0}.msg p{margin:4px 0 8px;white-space:pre-wrap;word-break:break-word}.msg small{color:var(--mu)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chip{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:7px 15px;border-radius:99px;font:inherit;font-size:14px;cursor:pointer}.chip.on{background:var(--pr);color:#fff;border-color:var(--pr)}
+.sw{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bd)}.sw input{width:auto;transform:scale(1.4)}
+.pill{display:inline-block;padding:2px 11px;border-radius:99px;font-size:12px;font-weight:600;background:var(--pr2);color:var(--pr)}.pill.off{background:#fde8e5;color:var(--rd)}
+.ov{position:static;display:block}.pop{background:var(--card);border:1px dashed var(--pr);border-radius:16px;padding:18px}.pop h3{color:var(--pr)}.pop iframe{width:100%;height:260px;border:0;border-radius:8px;background:#fff}
+.toast{position:fixed;top:calc(14px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);background:#14231b;color:#fff;padding:12px 20px;border-radius:14px;z-index:99;box-shadow:0 8px 24px #0006;border-left:5px solid #34c47c;animation:dn .3s}
+@keyframes dn{from{transform:translate(-50%,-30px);opacity:0}}
+.bk{display:none}
+@media(max-width:820px){.app{grid-template-columns:1fr}aside{position:fixed;left:0;top:0;width:270px;transform:translateX(-100%);transition:.25s}aside.on{transform:none}
+ .bk.on{display:block;position:fixed;inset:0;background:#0008;z-index:29}#bur{display:block}main{padding-left:14px;padding-right:14px}}
+</style></head><body>
+
+<div id="login"><div class="box">
+<svg class="lg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#0f7a43"/><rect x="10" y="13" width="44" height="30" rx="4" fill="#fff"/><rect x="14" y="17" width="36" height="22" rx="2" fill="#0b5a31"/><path d="M36 21a9 9 0 1 0 0 14a7 7 0 1 1 0-14z" fill="#ffd54a"/><rect x="19" y="47" width="26" height="4" rx="2" fill="#fff"/></svg>
+<h2 style="text-align:center">অ্যাডমিন লগইন</h2><p class="sub" style="text-align:center">বিসমিল্লাহ কম্পিউটার</p>
+<label>ইমেইল</label><input id="em" type="email" autocomplete="username"><label>পাসওয়ার্ড</label><input id="pw" type="password" autocomplete="current-password">
+<p style="margin:16px 0 6px"><button class="btn" id="go" style="width:100%;justify-content:center">প্রবেশ করুন</button></p>
+<p style="text-align:center;margin:8px 0 0"><small id="lm" style="color:var(--rd)"></small><br><a href="#" id="fg" style="font-size:13px;color:var(--pr)">পাসওয়ার্ড ভুলে গেছেন?</a></p></div></div>
+
+<div class="app hide" id="app">
+<aside id="sb"><div class="br"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#fff"/><rect x="10" y="13" width="44" height="30" rx="4" fill="#0f7a43"/><path d="M36 21a9 9 0 1 0 0 14a7 7 0 1 1 0-14z" fill="#ffd54a"/><rect x="19" y="47" width="26" height="4" rx="2" fill="#0f7a43"/></svg><div>বিসমিল্লাহ কম্পিউটার<small>অ্যাডমিন প্যানেল</small></div></div>
+<nav><button data-v="dash" class="on">📊 ড্যাশবোর্ড</button><button data-v="inbox">✉️ মেসেজ <span class="bdg hide" id="bd1"></span></button><button data-v="popup">📢 পপআপ নোটিশ</button><button data-v="set">⚙️ সাইট সেটিংস</button><button data-v="acc">👤 অ্যাকাউন্ট</button></nav>
+<a class="btn g" href="website.xml" target="_blank" style="justify-content:center">🌐 ওয়েবসাইট দেখুন</a></aside><div class="bk" id="bk"></div>
+
+<main>
+<div class="top"><button class="ib" id="bur">☰</button><div><h2 id="ttl">ড্যাশবোর্ড</h2><div class="sub" id="dt" style="margin:0"></div></div><div class="sp"></div>
+<button class="ib" id="bell" title="মেসেজ">🔔<span class="bdg hide" id="bd2"></span></button><button class="ib" id="th" title="থিম">🌙</button></div>
+
+<section id="v-dash"><div class="grid g4">
+<div class="card stat"><div class="ic">✉️</div><div class="n" id="s1">০</div><span>মোট মেসেজ</span></div>
+<div class="card stat"><div class="ic">🔴</div><div class="n" id="s2" style="color:var(--rd)">০</div><span>নতুন মেসেজ</span></div>
+<div class="card stat"><div class="ic">📅</div><div class="n" id="s3">০</div><span>আজকের মেসেজ</span></div>
+<div class="card stat"><div class="ic">📈</div><div class="n" id="s4">০</div><span>গত ৭ দিনে</span></div></div>
+<div class="grid g2" style="margin-top:14px"><div class="card"><h3>গত ৭ দিনের মেসেজ</h3><div class="chart" id="ch"></div></div>
+<div class="card"><h3>সাইটের অবস্থা</h3><div class="sw"><span>পপআপ নোটিশ</span><span class="pill off" id="ps">বন্ধ</span></div><div class="sw"><span>ফোন নম্বর</span><b id="pp">–</b></div><div class="sw"><span>WhatsApp</span><b id="pw2">–</b></div>
+<p style="margin:14px 0 0"><button class="btn sm" data-go="popup">নতুন নোটিশ</button> <button class="btn g sm" data-go="set">সেটিংস</button></p></div></div>
+<div class="card" style="margin-top:14px"><h3>সর্বশেষ মেসেজ</h3><div id="recent"></div></div></section>
+
+<section id="v-inbox" class="hide"><input id="q" placeholder="🔍 নাম, মোবাইল বা মেসেজ খুঁজুন"><div class="chips"><button class="chip on" data-f="all">সব</button><button class="chip" data-f="new">নতুন</button><button class="chip" data-f="read">পঠিত</button>
+<span style="flex:1"></span><button class="btn g sm" id="readAll">✔ সব পড়া হয়েছে</button><button class="btn o sm" id="csv">⬇ CSV</button></div><div id="list"></div></section>
+
+<section id="v-popup" class="hide"><p class="sub">ভিজিটর সাইটে ঢুকলে এই পপআপ দেখবে। লেখা, অ্যাড লিংক বা HTML কোড দেওয়া যাবে।</p>
+<div class="grid g2"><div class="card"><div class="sw"><span><b>পপআপ চালু</b></span><input type="checkbox" id="pon"></div>
+<label>ধরন</label><select id="pt"><option value="text">📝 লেখা (নোটিশ)</option><option value="link">🔗 অ্যাড / লিংক</option><option value="html">💻 HTML কোড</option></select>
+<div id="pf-title"><label>শিরোনাম</label><input id="ptitle" maxlength="100"></div><div id="pf-text"><label>লেখা</label><textarea id="ptext"></textarea></div>
+<div id="pf-url" class="hide"><label>লিংক (https://...)</label><input id="purl" placeholder="https://"><label>বাটনের লেখা</label><input id="pbtn" value="বিস্তারিত দেখুন"></div>
+<div id="pf-html" class="hide"><label>HTML কোড</label><textarea id="phtml" style="min-height:150px;font-family:monospace"></textarea></div>
+<label>শেষ তারিখ (ঐচ্ছিক, এরপর আর দেখাবে না)</label><input type="date" id="pexp">
+<p style="margin:16px 0 0"><button class="btn" id="psave">💾 প্রকাশ করুন</button> <small id="pm"></small></p></div>
+<div><h3>লাইভ প্রিভিউ</h3><div id="pv"></div></div></div></section>
+
+<section id="v-set" class="hide"><div class="card" style="max-width:560px"><h3>সাইট সেটিংস</h3>
+<label>ফোন নম্বর (যেমন 017XXXXXXXX)</label><input id="sph" inputmode="tel"><label>WhatsApp নম্বর (দেশের কোডসহ, যেমন 88017XXXXXXXX)</label><input id="swa" inputmode="tel">
+<label>খোলা-বন্ধের সময়</label><input id="shr" placeholder="সকাল ৮টা – রাত ১০টা"><label>উপরের চলমান বার্তা (ঐচ্ছিক)</label><input id="stk">
+<p style="margin:16px 0 0"><button class="btn" id="ssave">💾 সংরক্ষণ</button> <small id="sm"></small></p></div></section>
+
+<section id="v-acc" class="hide"><div class="grid g2"><div class="card"><h3>নোটিফিকেশন</h3>
+<div class="sw"><span>🔊 নতুন মেসেজে শব্দ</span><input type="checkbox" id="nsnd"></div><div class="sw"><span>📲 ব্রাউজার নোটিফিকেশন</span><input type="checkbox" id="nbr"></div>
+<p class="sub" style="margin-top:10px">প্যানেল খোলা থাকলে প্রতি ১২ সেকেন্ডে নতুন মেসেজ খোঁজা হয়।</p></div>
+<div class="card"><h3>পাসওয়ার্ড পরিবর্তন</h3><p class="sub" id="ae"></p><label>নতুন পাসওয়ার্ড (কমপক্ষে ৬ অক্ষর)</label><input type="password" id="np" autocomplete="new-password">
+<p style="margin:14px 0 0"><button class="btn" id="cp">পরিবর্তন করুন</button> <small id="cm"></small></p><hr style="border:0;border-top:1px solid var(--bd);margin:18px 0"><button class="btn d" id="out">↩ লগআউট</button></div></div></section>
+</main></div>
+
+<script>
+(function(){
+var KEY="AIzaSyAmYRfJO0_kdTi49nhvMCg8FMkOiAIi5GQ";
+var DB="https://bismillah-computer-fda0e-default-rtdb.firebaseio.com"; /* Firebase Console > Realtime Database এ যে URL দেখাবে সেটা মিলিয়ে নিন */
+var $=function(i){return document.getElementById(i)},S={tok:null,exp:0,rt:null,email:""},msgs=[],lastNew=-1,filt="all",timer=null,site={};
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":String(s);return d.innerHTML}
+function bn(n){return String(n).replace(/\d/g,function(d){return "০১২৩৪৫৬৭৮৯"[d]})}
+function toast(t){var d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.remove()},4500)}
+function beep(){if(!$("nsnd").checked)return;try{var a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=880;g.gain.setValueAtTime(.2,a.currentTime);o.start();o.stop(a.currentTime+.25)}catch(e){}}
+/* ---- auth ---- */
+function setSess(d){S.tok=d.idToken||d.id_token;S.rt=d.refreshToken||d.refresh_token;S.exp=Date.now()+(+(d.expiresIn||d.expires_in||3600))*1000;ls("bc_rt",S.rt)}
+function tok(){if(S.tok&&Date.now()<S.exp-60000)return Promise.resolve(S.tok);if(!S.rt)return Promise.reject();
+  return fetch("https://securetoken.googleapis.com/v1/token?key="+KEY,{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"grant_type=refresh_token&refresh_token="+encodeURIComponent(S.rt)}).then(function(r){return r.json()}).then(function(d){if(!d.id_token)throw 0;setSess(d);return S.tok})}
+function api(m,p,b){return tok().then(function(t){return fetch(DB+p+".json?auth="+t,{method:m,body:b!==undefined?JSON.stringify(b):undefined})}).then(function(r){if(!r.ok)throw r.status;return r.json()})}
+function idp(ep,body){return fetch("https://identitytoolkit.googleapis.com/v1/accounts:"+ep+"?key="+KEY,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)}).then(function(r){return r.json()})}
+function logout(){S={tok:null,exp:0,rt:null,email:""};ls("bc_rt",null);clearInterval(timer);$("app").classList.add("hide");$("login").classList.remove("hide")}
+function enter(){$("login").classList.add("hide");$("app").classList.remove("hide");$("ae").textContent=S.email||"";loadSite();loadMsgs();clearInterval(timer);timer=setInterval(loadMsgs,12000)}
+$("go").onclick=function(){$("lm").textContent="অপেক্ষা করুন...";
+  idp("signInWithPassword",{email:$("em").value.trim(),password:$("pw").value,returnSecureToken:true}).then(function(d){
+    if(!d.idToken){$("lm").textContent="ইমেইল বা পাসওয়ার্ড ভুল।";return}$("lm").textContent="";S.email=d.email;setSess(d);enter()}).catch(function(){$("lm").textContent="সংযোগ করা যায়নি।"})};
+$("pw").onkeydown=function(e){if(e.key=="Enter")$("go").click()};
+$("fg").onclick=function(e){e.preventDefault();var m=$("em").value.trim();if(!m){$("lm").textContent="আগে ইমেইল লিখুন।";return}idp("sendOobCode",{requestType:"PASSWORD_RESET",email:m}).then(function(){$("lm").style.color="var(--pr)";$("lm").textContent="ইমেইলে রিসেট লিংক পাঠানো হয়েছে।"})};
+$("out").onclick=logout;
+$("cp").onclick=function(){var p=$("np").value;if(p.length<6){$("cm").textContent="কমপক্ষে ৬ অক্ষর দিন।";return}tok().then(function(t){return idp("update",{idToken:t,password:p,returnSecureToken:true})}).then(function(d){if(d.idToken){setSess(d);$("np").value="";$("cm").textContent="✅ পরিবর্তন হয়েছে"}else $("cm").textContent="আবার লগইন করে চেষ্টা করুন।"})};
+/* ---- nav ---- */
+var T={dash:"ড্যাশবোর্ড",inbox:"মেসেজ",popup:"পপআপ নোটিশ",set:"সাইট সেটিংস",acc:"অ্যাকাউন্ট"};
+function go(v){["dash","inbox","popup","set","acc"].forEach(function(x){$("v-"+x).classList.toggle("hide",x!=v)});document.querySelectorAll("aside nav button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-v")==v)});$("ttl").textContent=T[v];$("sb").classList.remove("on");$("bk").classList.remove("on");scrollTo(0,0)}
+document.querySelectorAll("aside nav button").forEach(function(b){b.onclick=function(){go(b.getAttribute("data-v"))}});
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(b.getAttribute("data-go"))}});
+$("bell").onclick=function(){go("inbox")};$("bur").onclick=function(){$("sb").classList.add("on");$("bk").classList.add("on")};$("bk").onclick=function(){$("sb").classList.remove("on");$("bk").classList.remove("on")};
+function theme(t){document.documentElement.setAttribute("data-theme",t);$("th").textContent=t=="dark"?"☀️":"🌙";ls("bc_th",t)}
+$("th").onclick=function(){theme(document.documentElement.getAttribute("data-theme")=="dark"?"light":"dark")};theme(ls("bc_th")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+$("dt").textContent=new Date().toLocaleDateString("bn-BD",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+$("nsnd").checked=ls("bc_snd")!="0";$("nsnd").onchange=function(){ls("bc_snd",this.checked?"1":"0")};
+$("nbr").checked=ls("bc_br")=="1"&&window.Notification&&Notification.permission=="granted";
+$("nbr").onchange=function(){var c=this,on=c.checked;if(on&&window.Notification)Notification.requestPermission().then(function(p){c.checked=p=="granted";ls("bc_br",c.checked?"1":"0")});else ls("bc_br","0")};
+/* ---- messages ---- */
+function loadMsgs(){tok().then(function(t){return fetch(DB+"/messages.json?auth="+t)}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+  msgs=Object.keys(d||{}).map(function(k){var x=d[k];x.id=k;return x}).sort(function(a,b){return b.ts-a.ts});
+  var nw=msgs.filter(function(m){return !m.read}).length;
+  if(lastNew>=0&&nw>lastNew){var m0=msgs[0];toast("🔔 নতুন মেসেজ: "+m0.name);beep();if($("nbr").checked)try{new Notification("নতুন মেসেজ – "+m0.name,{body:m0.text})}catch(e){}}
+  lastNew=nw;render()}).catch(function(e){})}
+function wa(p){p=String(p).replace(/\D/g,"");return "https://wa.me/"+(p[0]=="0"?"88"+p:p)}
+function card(m){var ph=String(m.phone).replace(/[^\d+]/g,"");return '<div class="msg '+(m.read?"":"new")+'"><div class="av">'+esc((m.name||"?")[0])+'</div><div class="bd"><b>'+esc(m.name)+'</b> · <a href="tel:'+ph+'">'+esc(m.phone)+'</a><br><small>'+new Date(m.ts).toLocaleString("bn-BD")+'</small><p>'+esc(m.text)+'</p>'+
+  '<a class="btn sm" href="tel:'+ph+'">📞 কল</a> <a class="btn g sm" target="_blank" rel="noopener" href="'+wa(m.phone)+'">💬 WhatsApp</a> <button class="btn o sm" data-r="'+m.id+'">'+(m.read?"অপঠিত":"✔ পড়া হয়েছে")+'</button> <button class="btn d sm" data-d="'+m.id+'">🗑</button></div></div>'}
+function render(){
+  var nw=msgs.filter(function(m){return !m.read}).length,td=new Date().setHours(0,0,0,0),wk=td-6*864e5;
+  $("s1").textContent=bn(msgs.length);$("s2").textContent=bn(nw);$("s3").textContent=bn(msgs.filter(function(m){return m.ts>=td}).length);$("s4").textContent=bn(msgs.filter(function(m){return m.ts>=wk}).length);
+  [$("bd1"),$("bd2")].forEach(function(b){b.textContent=bn(nw);b.classList.toggle("hide",!nw)});document.title=(nw?"("+nw+") ":"")+"অ্যাডমিন – বিসমিল্লাহ কম্পিউটার";
+  var days=[],mx=1;for(var i=6;i>=0;i--){var s=td-i*864e5,c=msgs.filter(function(m){return m.ts>=s&&m.ts<s+864e5}).length;mx=Math.max(mx,c);days.push([new Date(s).toLocaleDateString("bn-BD",{weekday:"short"}),c])}
+  $("ch").innerHTML=days.map(function(d){return '<div><b>'+bn(d[1])+'</b><i style="height:'+Math.round(d[1]/mx*100)+'%"></i>'+d[0]+'</div>'}).join("");
+  $("recent").innerHTML=msgs.slice(0,4).map(card).join("")||'<p class="sub">এখনো কোনো মেসেজ আসেনি।</p>';
+  var q=$("q").value.trim().toLowerCase(),l=msgs.filter(function(m){return(filt=="all"||(filt=="new"?!m.read:m.read))&&(!q||(m.name+m.phone+m.text).toLowerCase().indexOf(q)>=0)});
+  $("list").innerHTML=l.map(card).join("")||'<div class="card">কোনো মেসেজ নেই।</div>'}
+function act(e){var r=e.target.getAttribute("data-r"),d=e.target.getAttribute("data-d");
+  if(r){var m=msgs.find(function(x){return x.id==r});api("PATCH","/messages/"+r,{read:!m.read}).then(loadMsgs)}
+  if(d&&confirm("মেসেজটি মুছে ফেলবেন?"))api("DELETE","/messages/"+d).then(loadMsgs)}
+$("list").onclick=act;$("recent").onclick=act;$("q").oninput=render;
+document.querySelectorAll(".chip").forEach(function(c){c.onclick=function(){filt=c.getAttribute("data-f");document.querySelectorAll(".chip").forEach(function(x){x.classList.toggle("on",x==c)});render()}});
+$("readAll").onclick=function(){var u={};msgs.forEach(function(m){u[m.id+"/read"]=true});api("PATCH","/messages",u).then(loadMsgs)};
+$("csv").onclick=function(){var r=[["নাম","মোবাইল","মেসেজ","সময়"]].concat(msgs.map(function(m){return [m.name,m.phone,m.text,new Date(m.ts).toLocaleString()]}));
+  var c="\ufeff"+r.map(function(x){return x.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"'}).join(",")}).join("\n"),a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:"text/csv"}));a.download="messages.csv";a.click()};
+/* ---- popup & settings ---- */
+function ptype(){var t=$("pt").value;$("pf-title").classList.toggle("hide",t=="html");$("pf-text").classList.toggle("hide",t=="html");$("pf-url").classList.toggle("hide",t!="link");$("pf-html").classList.toggle("hide",t!="html");prev()}
+function readPop(){var e=$("pexp").value;return{on:$("pon").checked,type:$("pt").value,title:$("ptitle").value,text:$("ptext").value,url:$("purl").value.trim(),btn:$("pbtn").value,html:$("phtml").value,exp:e?new Date(e+"T23:59:59").getTime():0,v:Date.now()}}
+function prev(){var p=readPop(),h='<div class="pop">';
+  if(p.type=="html"){h+='<iframe sandbox="allow-scripts allow-popups"></iframe>'}else{h+='<h3>'+esc(p.title||"শিরোনাম")+'</h3><p style="white-space:pre-wrap">'+esc(p.text||"আপনার নোটিশ এখানে দেখা যাবে...")+'</p>';if(p.type=="link")h+='<span class="btn">'+esc(p.btn||"বিস্তারিত")+'</span>'}
+  $("pv").innerHTML=h+'</div>';var f=$("pv").querySelector("iframe");if(f)f.srcdoc=p.html}
+$("pt").onchange=ptype;["ptitle","ptext","purl","pbtn","phtml"].forEach(function(i){$(i).oninput=prev});
+function loadSite(){fetch(DB+"/site.json").then(function(r){return r.json()}).then(function(d){d=d||{};site=d;var p=d.popup,i=d.info||{};
+  if(p){$("pon").checked=!!p.on;$("pt").value=p.type||"text";$("ptitle").value=p.title||"";$("ptext").value=p.text||"";$("purl").value=p.url||"";$("pbtn").value=p.btn||"বিস্তারিত দেখুন";$("phtml").value=p.html||"";if(p.exp)$("pexp").value=new Date(p.exp).toISOString().slice(0,10)}
+  ptype();$("sph").value=i.phone||"";$("swa").value=i.wa||"";$("shr").value=i.hours||"";$("stk").value=i.ticker||"";
+  var on=p&&p.on&&(!p.exp||p.exp>Date.now());$("ps").textContent=on?"চালু":"বন্ধ";$("ps").className="pill"+(on?"":" off");$("pp").textContent=i.phone||"দেওয়া হয়নি";$("pw2").textContent=i.wa||"দেওয়া হয়নি"}).catch(function(){})}
+$("psave").onclick=function(){var p=readPop();if(p.type=="link"&&!/^https?:\/\//i.test(p.url)){$("pm").textContent="লিংক https:// দিয়ে শুরু হতে হবে।";return}
+  api("PUT","/site/popup",p).then(function(){$("pm").textContent="✅ প্রকাশিত হয়েছে";toast("✅ পপআপ সংরক্ষিত");loadSite()}).catch(function(){$("pm").textContent="সংরক্ষণ করা যায়নি (Rules ও URL দেখুন)"})};
+$("ssave").onclick=function(){api("PUT","/site/info",{phone:$("sph").value.trim(),wa:$("swa").value.trim(),hours:$("shr").value.trim(),ticker:$("stk").value.trim()}).then(function(){$("sm").textContent="✅ সংরক্ষিত হয়েছে";loadSite()}).catch(function(){$("sm").textContent="সংরক্ষণ করা যায়নি"})};
+/* ---- auto login ---- */
+var rt=ls("bc_rt");if(rt){S.rt=rt;tok().then(function(){enter()}).catch(logout)}
+})();
+</script></body></html>
